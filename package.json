@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "lerna run --parallel watch"
+  },
+  "devDependencies": {
+    "lerna": "^2.11.0"
+  }
+}
