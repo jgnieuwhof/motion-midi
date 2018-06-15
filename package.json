@@ -1,6 +1,8 @@
 {
+  "author": "jgnieuwhof",
+  "license": "MIT",
   "scripts": {
-    "start": "lerna run --parallel watch"
+    "start": "lerna bootstrap && lerna run --parallel watch"
   },
   "devDependencies": {
     "lerna": "^2.11.0"
