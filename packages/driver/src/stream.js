@@ -23,12 +23,12 @@ import { device as _device } from "./common/env";
 // }, 1000 / fps);
 
 const stream = async () => {
-  const device = _device || (await listPorts())[0];
+  const device = _device || (await listPorts())?.[0]?.comName;
   if (!device) return log(`No device found, exiting`);
   const port = connect({ device });
   log(`Connected to: ${device}`);
   port.on("error", log);
-  port.on("data", chunk => callback(parser.parse(chunk)));
+  port.on("data", chunk => console.log(parser.parse(chunk)));
 };
 
 export default stream;
