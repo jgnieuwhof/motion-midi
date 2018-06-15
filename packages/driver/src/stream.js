@@ -3,6 +3,7 @@ import { median } from "ramda";
 
 import { connect, listPorts, parser } from "./utils";
 import { clear, log } from "./common/console";
+import { device as _device } from "./common/env";
 
 // let state = {
 //   durations: Array.from({ length: n }, () => [])
@@ -21,15 +22,13 @@ import { clear, log } from "./common/console";
 //   );
 // }, 1000 / fps);
 
-const stream = async (
-  callback,
-  { baudRate = 28800, byteLength = 5, device: _device } = {}
-) => {
+const stream = async () => {
   const device = _device || (await listPorts())[0];
-  const port = connect({ device, baudRate, byteLength });
+  if (!device) return log(`No device found, exiting`);
+  const port = connect({ device });
   log(`Connected to: ${device}`);
   port.on("error", log);
   port.on("data", chunk => callback(parser.parse(chunk)));
 };
 
-main();
+export default stream;

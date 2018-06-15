@@ -1,9 +1,11 @@
 import SerialPort from "serialport";
 const ByteLength = require("@serialport/parser-byte-length");
 
-const connect = ({ device, baudRate, chunkLength }) =>
+import { baudRate, packageLength } from "../common/env";
+
+const connect = ({ device }) =>
   new SerialPort(device, { baudRate }).pipe(
-    new ByteLength({ length: chunkLength })
+    new ByteLength({ length: packageLength })
   );
 
 export default connect;
