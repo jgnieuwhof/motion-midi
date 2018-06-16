@@ -2,10 +2,13 @@ import net from 'net';
 import fs from 'fs';
 import uuid from 'uuid/v4';
 
+import { socketToPath } from './utils';
+
 const serve = async ({ socket, onConnect, onEnd }) => {
   let connections = {};
+  const path = socketToPath(socket);
 
-  if (fs.existsSync(socket)) fs.unlinkSync(socket);
+  if (fs.existsSync(path)) fs.unlinkSync(path);
 
   const server = net.createServer(connection => {
     const id = uuid();
@@ -21,10 +24,11 @@ const serve = async ({ socket, onConnect, onEnd }) => {
     });
   });
 
-  await new Promise(r => server.listen(socket, r));
+  await new Promise(r => server.listen(path, r));
 
   return {
     socket,
+    path,
     server,
     write: data =>
       Object.keys(connections).forEach(k => connections[k].write(data)),
