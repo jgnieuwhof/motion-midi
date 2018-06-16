@@ -2,19 +2,21 @@ import net from 'net';
 import fs from 'fs';
 import uuid from 'uuid/v4';
 
-import { log } from '../terminal';
-
-const serve = async ({ socket }) => {
+const serve = async ({ socket, onConnect, onEnd }) => {
   let connections = {};
 
   if (fs.existsSync(socket)) fs.unlinkSync(socket);
 
-  const server = net.createServer(c => {
+  const server = net.createServer(connection => {
     const id = uuid();
-    connections[id] = c;
-    log(`Connected to '${id}'`);
-    c.on('end', () => {
-      log(`'${id}' disconnected`);
+    const args = { id, connection };
+
+    connections[id] = connection;
+
+    onConnect?.(args);
+
+    connection.on('end', () => {
+      onEnd?.(args);
       delete connections[id];
     });
   });

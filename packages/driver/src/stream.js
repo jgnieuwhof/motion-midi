@@ -12,6 +12,8 @@ const stream = async () => {
 
   const socket = await serve({
     socket: socketName,
+    onConnect: ({ id }) => log(`Connected to '${id}'`),
+    onEnd: ({ id }) => log(`'${id}' disconnected`),
   });
 
   log(`Serving '${device}' data to socket '${socketName}'`);
