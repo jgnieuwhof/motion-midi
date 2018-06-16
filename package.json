@@ -1,10 +1,23 @@
 {
   "author": "jgnieuwhof",
   "license": "MIT",
-  "scripts": {
-    "start": "lerna bootstrap && lerna run --parallel watch"
-  },
+  "scripts": {},
   "devDependencies": {
-    "lerna": "^2.11.0"
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.1.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.42.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.6.1",
+    "lerna": "^2.11.0",
+    "npm-link-shared": "^0.5.2",
+    "prettier": "^1.9.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "modules": true
   }
 }
