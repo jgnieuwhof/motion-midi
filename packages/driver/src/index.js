@@ -1,1 +1,1 @@
-export { default } from "./stream";
+export { default } from './stream';

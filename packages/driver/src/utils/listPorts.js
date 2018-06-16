@@ -1,4 +1,4 @@
-import SerialPort from "serialport";
+import SerialPort from 'serialport';
 
 const listPorts = () =>
   new Promise((res, rej) =>
@@ -8,10 +8,10 @@ const listPorts = () =>
           ? rej(err)
           : res(
               ports.filter(p =>
-                p.manufacturer?.toLowerCase()?.includes("arduino")
-              )
-            )
-    )
+                p.manufacturer?.toLowerCase()?.includes('arduino'),
+              ),
+            ),
+    ),
   );
 
 export default listPorts;
