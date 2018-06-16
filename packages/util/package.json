@@ -2,7 +2,7 @@
   "name": "@motion-midi/util",
   "version": "0.0.1",
   "description": "shared utilities like streaming and parsing",
-  "repository": "https://github.com/jgnieuwhof/motion-midi",
+  "license": "LicenseRef-../../LICENSE",
   "main": "dist",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,6 @@
     "prepare": "rm -rf dist && mkdir dist && babel src --out-dir dist"
   },
   "author": "jgnieuwhof",
-  "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.0.0-beta.51",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.51",
