@@ -1,12 +1,23 @@
-import { listen, parser } from '@motion-midi/util';
+import express from 'express';
+import socketIO from 'socket.io';
+import { Server } from 'http';
+import cors from 'cors';
 
-import { socketName } from './env';
+import { log } from '@motion-midi/util';
+
+import { port } from './env';
+import sockets from './sockets';
 
 const serve = () => {
-  listen({
-    socket: socketName,
-    callback: data => console.log(parser.parse(data)),
-  });
+  const app = express();
+  app.use(cors());
+
+  const http = Server(app);
+  const io = socketIO(http);
+
+  sockets({ io });
+
+  http.listen(port, () => log(`⚡️⚡️⚡️ Listening on port ${port} ⚡️⚡️⚡️`));
 };
 
 export default serve;
