@@ -2,7 +2,7 @@
   "name": "@motion-midi/util",
   "version": "0.0.1",
   "description": "shared utilities like streaming and parsing",
-  "license": "LicenseRef-../../LICENSE",
+  "license": "UNLICENSED",
   "main": "dist",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
