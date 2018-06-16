@@ -1,7 +1,7 @@
 {
-  "name": "@motion-midi/transposer",
+  "name": "@motion-midi/server",
   "version": "0.0.1",
-  "description": "transpose byte stream to midi",
+  "description": "http server to support gui",
   "license": "LicenseRef-../../LICENSE",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,6 @@
     "watch": "nodemon index.js"
   },
   "author": "jgnieuwhof",
-  "license": "MIT",
   "dependencies": {
     "@motion-midi/util": "0.0.1",
     "@babel/core": "^7.0.0-beta.51",

@@ -14,7 +14,6 @@
     "prepare": "rm -rf dist && mkdir dist && babel *.js --out-dir dist && babel src --out-dir dist/src"
   },
   "author": "jgnieuwhof",
-  "license": "MIT",
   "dependencies": {
     "@motion-midi/util": "^0.0.1",
     "@babel/core": "^7.0.0-beta.51",
