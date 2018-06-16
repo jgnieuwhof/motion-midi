@@ -2,7 +2,7 @@ import net from 'net';
 import fs from 'fs';
 import uuid from 'uuid/v4';
 
-import { log } from '../common/console';
+import { log } from '../terminal';
 
 const serve = async ({ socket }) => {
   let connections = {};

@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
 require('./init');
-require('./src');
+require('./src').default();

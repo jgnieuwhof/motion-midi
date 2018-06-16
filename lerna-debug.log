@@ -1,0 +1,18 @@
+0 silly input [ '@motion-midi/util' ]
+1 silly flags { _: [ 'add' ],
+1 silly flags   'reject-cycles': false,
+1 silly flags   rejectCycles: false,
+1 silly flags   dev: false,
+1 silly flags   D: false,
+1 silly flags   scope: '@motion-midi/driver',
+1 silly flags   args: [ '@motion-midi/util' ] }
+2 verbose rootPath /Users/jordannieuwhof/projects/motion-midi
+3 info version 2.11.0
+4 silly isInitialized
+5 silly isInitialized true
+6 silly existsSync /Users/jordannieuwhof/projects/motion-midi/VERSION
+7 info scope @motion-midi/driver
+8 silly initialize attempt
+9 error initialize callback with error
+10 error Error: Package `@motion-midi/util` doesn't exist
+10 error     at got.then.catch.err (/Users/jordannieuwhof/.nvm/versions/node/v10.4.1/lib/node_modules/lerna/node_modules/package-json/index.js:62:11)

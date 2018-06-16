@@ -1,22 +1,11 @@
-import net from 'net';
-import { Parser } from 'binary-parser';
+import { listen, parser } from '@motion-midi/util';
 
 import { socketName } from './env';
 
-const parser = new Parser()
-  .endianess('little')
-  .uint8('id')
-  .uint32('duration');
-
-const stream = ({ socket, callback }) => {
-  const client = net.createConnection({ path: socket });
-  client.on('data', data => callback(parser.parse(data)));
-};
-
 const transpose = () => {
-  stream({
+  listen({
     socket: socketName,
-    callback: console.log,
+    callback: data => console.log(parser.parse(data)),
   });
 };
 

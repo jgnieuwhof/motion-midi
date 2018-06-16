@@ -1,31 +1,27 @@
 {
-  "name": "@motion-midi/driver",
+  "name": "@motion-midi/util",
   "version": "0.0.1",
-  "description": "serial to socket",
-  "bin": {
-    "motion-midi-driver": "dist/start.js"
-  },
-  "main": "index.js",
+  "description": "shared utilities like streaming and parsing",
+  "repository": "https://github.com/jgnieuwhof/motion-midi",
+  "main": "dist",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node start.js",
-    "watch": "nodemon start.js",
-    "prepare": "rm -rf dist && mkdir dist && babel *.js --out-dir dist && babel src --out-dir dist/src"
+    "watch": "nodemon --ignore dist/ --ignore node_modules/ --exec npm link",
+    "prepare": "rm -rf dist && mkdir dist && babel src --out-dir dist"
   },
   "author": "jgnieuwhof",
   "license": "MIT",
   "dependencies": {
-    "@motion-midi/util": "^0.0.1",
     "@babel/core": "^7.0.0-beta.51",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.51",
     "@babel/plugin-proposal-optional-chaining": "^7.0.0-beta.51",
     "@babel/preset-env": "^7.0.0-beta.51",
     "@babel/register": "^7.0.0-beta.51",
     "babel-polyfill": "^6.26.0",
+    "binary-parser": "^1.3.2",
     "dotenv": "^6.0.0",
     "nodemon": "^1.17.5",
-    "serialport": "^6.2.0",
-    "@serialport/parser-byte-length": "^1.0.5"
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.51"

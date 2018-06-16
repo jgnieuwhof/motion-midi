@@ -1,7 +1,9 @@
 {
   "author": "jgnieuwhof",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "lerna bootstrap && lerna run --parallel watch"
+  },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
     "eslint": "^4.1.1",

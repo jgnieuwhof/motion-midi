@@ -1,6 +1,7 @@
-import { connect, listPorts, serve } from './utils';
-import { log } from './common/console';
-import { device as _device, socketName } from './common/env';
+import { serve, log } from '@motion-midi/util';
+
+import { connect, listPorts } from './utils';
+import { device as _device, socketName } from './env';
 
 const stream = async () => {
   const device = _device || (await listPorts().then(r => r?.[0]?.comName));
