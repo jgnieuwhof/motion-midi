@@ -1,5 +1,11 @@
 import React from 'react';
 
-import Section from 'grommet/components/Section';
+import Box from 'grommet/components/Box';
 
-export default () => <Section>hey is this something?</Section>;
+import Live from 'components/Live';
+
+export default () => (
+  <Box>
+    <Live />
+  </Box>
+);

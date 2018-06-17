@@ -8,7 +8,7 @@ import Box from 'grommet/components/Box';
 import Menu from 'grommet/components/Menu';
 
 export default () => (
-  <Sidebar full colorIndex="brand">
+  <Sidebar size="small" full colorIndex="brand">
     <Header pad="medium" justify="between">
       <Title>nieuwhof</Title>
     </Header>
