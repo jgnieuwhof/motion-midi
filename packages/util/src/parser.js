@@ -1,8 +1,13 @@
 import { Parser } from 'binary-parser';
 
-const parser = new Parser()
+export const parser = new Parser()
   .endianess('little')
   .uint8('id')
   .uint32('duration');
 
-export default parser;
+export const squash = ({ id, duration }) => {
+  const buf = Buffer.alloc(5);
+  buf.writeUInt8(id, 0);
+  buf.writeUInt32LE(duration, 1);
+  return buf;
+};
