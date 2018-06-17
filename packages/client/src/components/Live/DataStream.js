@@ -9,19 +9,20 @@ const enhance = compose(
   withState('id', 'setId', null),
   withState('closed', 'setClosed', true),
   withState('error', 'setError', null),
-  withState('data', 'setData', null),
+  withState('state', 'setState', { data: null, state: {} }),
   withPropsOnChange(
     ['on'],
     ({
       message,
+      onData = () => {},
       args,
       socket,
       on,
       id,
       setId,
       setClosed,
-      setData,
       setError,
+      setState,
     }) => {
       if (on) {
         const id = uuid();
@@ -31,7 +32,12 @@ const enhance = compose(
           );
           stream.on('close', () => setClosed(true));
           stream.on('error', error => console.error(error) || setError(error));
-          stream.on('data', data => setData(data));
+          stream.on('data', data =>
+            setState(state => ({
+              data,
+              state: onData(data, state.state) || {},
+            })),
+          );
           setId(id);
           setClosed(false);
         });
@@ -45,6 +51,7 @@ const enhance = compose(
   ),
 );
 
-export default enhance(({ render, on, data, error, closed }) =>
-  render({ on, data, error, closed }),
+export default enhance(
+  ({ render, on, state: { data, state }, error, closed }) =>
+    render ? render({ on, data, state, error, closed }) : null,
 );
