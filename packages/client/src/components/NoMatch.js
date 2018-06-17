@@ -1,5 +1,12 @@
 import React from 'react';
 
-import Section from 'grommet/components/Section';
+import Box from 'grommet/components/Box';
+import Heading from 'grommet/components/Heading';
+import Label from 'grommet/components/Label';
 
-export default () => <Section>404 :'(</Section>;
+export default () => (
+  <Box full align="center" justify="center">
+    <Heading size="xlarge">page not found</Heading>
+    <Label>try another</Label>
+  </Box>
+);
