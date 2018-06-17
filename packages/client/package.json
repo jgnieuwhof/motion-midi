@@ -19,7 +19,8 @@
     "react-scripts": "1.1.4",
     "recompose": "^0.27.1",
     "socket.io-client": "^2.1.1",
-    "socket.io-stream": "^0.9.1"
+    "socket.io-stream": "^0.9.1",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "ajv": "^6.5.1",

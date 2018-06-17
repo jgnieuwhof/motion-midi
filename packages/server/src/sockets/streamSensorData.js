@@ -42,8 +42,8 @@ const createStream = ({ fps, window } = {}) => {
 };
 
 export default ({ socket }) =>
-  socket.on('client::stream', ({ fps = 10, window = 5 }) => {
+  socket.on('client::stream', ({ id, fps = 10, window = 5 }) => {
     const { stream, close } = createStream({ fps, window });
-    socketStream(socket).emit('server::stream', stream);
-    socket.on('client::streamEnd', close);
+    socketStream(socket).emit(`server::stream::${id}`, stream);
+    socket.on(`client::streamEnd::${id}`, close);
   });
