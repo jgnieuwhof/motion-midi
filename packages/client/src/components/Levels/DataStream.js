@@ -9,7 +9,10 @@ const enhance = compose(
   withState('id', 'setId', null),
   withState('closed', 'setClosed', true),
   withState('error', 'setError', null),
-  withState('state', 'setState', { data: null, state: {} }),
+  withState('state', 'setState', ({ initialState }) => ({
+    data: null,
+    state: initialState,
+  })),
   withPropsOnChange(
     ['on'],
     ({

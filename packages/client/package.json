@@ -10,16 +10,22 @@
   },
   "dependencies": {
     "@motion-midi/util": "0.0.1",
+    "emotion": "^9.2.3",
+    "emotion-theming": "^9.2.3",
     "grommet": "^1.10.1",
     "history": "^4.7.2",
+    "konva": "^2.1.5",
     "react": "^16.4.1",
     "react-component-component": "^1.2.1",
     "react-dom": "^16.4.1",
+    "react-emotion": "^9.2.3",
+    "react-konva": "^1.7.7",
     "react-router": "^4.3.1",
     "react-scripts": "1.1.4",
     "recompose": "^0.27.1",
     "socket.io-client": "^2.1.1",
     "socket.io-stream": "^0.9.1",
+    "styled-system": "^2.3.1",
     "uuid": "^3.2.1"
   },
   "devDependencies": {

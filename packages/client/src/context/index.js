@@ -1,9 +1,13 @@
 import React from 'react';
+import { ThemeProvider } from 'emotion-theming';
 
+import theme from 'common/theme';
 import SocketContext from './SocketContext';
 
 const ContextProvider = ({ children }) => (
-  <SocketContext.Provider>{children}</SocketContext.Provider>
+  <ThemeProvider theme={theme}>
+    <SocketContext.Provider>{children}</SocketContext.Provider>
+  </ThemeProvider>
 );
 
 export const withContext = name => Component => ({ children, ...props }) => {
