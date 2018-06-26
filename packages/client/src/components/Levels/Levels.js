@@ -10,7 +10,13 @@ import LevelsCanvas from './LevelsCanvas';
 import { Component, Measure } from 'components/utils';
 import { Div } from 'components/uikit';
 
-const Levels = ({ wrapperRef = React.createRef(), theme }) => (
+const Levels = ({
+  min,
+  max,
+  fps,
+  window: _window,
+  wrapperRef = React.createRef(),
+}) => (
   <Component initialState={{ on: false }}>
     {({ state: { on }, setState }) => (
       <Box align="center" full>
@@ -29,13 +35,19 @@ const Levels = ({ wrapperRef = React.createRef(), theme }) => (
                   {...{ on }}
                   initialState={{ durations: {} }}
                   message="stream"
-                  args={{ fps: 15, window: 10 }}
+                  args={{ fps, window: _window }}
                   onData={(data, state) => {
                     const { id, duration } = parser.parse(data);
+                    const clipped =
+                      duration > max
+                        ? duration > max * 1.5
+                          ? 0
+                          : max
+                        : Math.max(duration, min) - min;
                     return {
                       durations: {
                         ...state.durations,
-                        [id]: duration > 3000 ? 0 : (duration / 3000) * 100,
+                        [id]: (clipped / (max - min)) * 100,
                       },
                     };
                   }}

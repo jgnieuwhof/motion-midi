@@ -2,10 +2,10 @@ import React from 'react';
 
 import Box from 'grommet/components/Box';
 
-import Live from 'components/Levels';
+import Levels from 'components/Levels';
 
 export default () => (
   <Box>
-    <Live />
+    <Levels min={300} max={700} fps={30} window={5} />
   </Box>
 );

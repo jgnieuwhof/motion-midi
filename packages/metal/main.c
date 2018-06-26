@@ -1,7 +1,7 @@
 
-const unsigned long BAUD_RATE = 9600;
+const unsigned long BAUD_RATE = 4800;
 
-const unsigned long LOOP = 60;
+const unsigned long LOOP = 100;
 const unsigned long TRIGGER = 1;
 
 struct sensor {
