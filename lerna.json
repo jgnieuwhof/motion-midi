@@ -4,7 +4,8 @@
     "packages/server",
     "packages/driver",
     "packages/transposer",
-    "packages/util"
+    "packages/util",
+    "packages/client"
   ],
   "version": "0.0.0"
 }
